@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Stroke Counter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Komika+Axis&display=swap" rel="stylesheet"> <!-- โหลดฟอนต์ Komika Axis -->
+    <style>
+        body {
+            background-color: transparent !important;  /* ทำพื้นหลังโปร่งใส */
+            color: white;
+            font-family: 'Komika Axis', sans-serif;  /* ใช้ฟอนต์ Komika Axis */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        #score {
+            font-size: 32px;  /* ขนาดอักษร 32px */
+            margin-top: 0;
+            color: white;  /* ตัวหนังสือสีขาว */
+            -webkit-text-stroke: 2px black;  /* ขอบสีดำ ขนาดขอบ 2px */
+            font-weight: bold;  /* ตัวหนา */
+        }
+    </style>
+</head>
+<body>
+
+<div id="score">0 / 10</div>
+
+<script>
+let score = 0;
+const maxScore = 10;
+
+document.addEventListener('keydown', function(event) {
+    if (event.altKey) {
+        if (event.key === '=' || event.key === '+') {
+            score++;
+            updateScore();
+        } else if (
