@@ -31,8 +31,21 @@ let score = 0;
 const maxScore = 10;
 
 document.addEventListener('keydown', function(event) {
-    if (event.altKey) {
+    if (event.altKey) {  // ตรวจสอบว่า ALT ถูกกดอยู่
         if (event.key === '=' || event.key === '+') {
-            score++;
+            score++;  // เพิ่มคะแนน
             updateScore();
-        } else if (
+        } else if (event.key === '-' || event.key === '_') {
+            score--;  // ลดคะแนน
+            updateScore();
+        }
+    }
+});
+
+function updateScore() {
+    document.getElementById('score').textContent = `${score} / ${maxScore}`;
+}
+</script>
+
+</body>
+</html>
